@@ -1,0 +1,12 @@
+/* Pretty little colours. */
+
+body {
+  background-color: #000000;
+}
+
+.cmd_line {
+  display: block;
+  color: #f4f4f4;
+  margin-top: 0px;
+  margin-bottom: -6px;
+}

@@ -1,0 +1,9 @@
+{
+        "org": "f8yis7",
+        "domain": "internetofthings.ibmcloud.com",
+        "type": "IBM-KTH-Demo",
+        "id": "0",
+        "auth-method": "token",
+        "auth-token": "4Opr3mfUFSrOXyi4bw",
+        "use-client-certs": false
+}
