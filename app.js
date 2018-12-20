@@ -17,7 +17,6 @@ var appEnv = cfenv.getAppEnv();
 // start server on the specified port and binding host appEnv.port
 http.listen(8080, function() {
   console.log("server starting on " + appEnv.url);
-  console.log(io);
   io.emit('broadcast', "Connected!");
 });
 
