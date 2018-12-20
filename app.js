@@ -1,5 +1,5 @@
 var iotf = require("ibmiotf");
-var io = require("socket.io")(4000);
+var io = require("socket.io")(9090);
 var express = require('express');
 var cfenv = require('cfenv');
 //------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ appClient.on("connect", function () {
   
   /* On a temperature event, insert the new data. */
   appClient.on("deviceEvent", function (deviceType, deviceId, eventType, format, payload) {
-    console.log("Device Event from :: "+deviceType+" : "+deviceId+" of event "+eventType+" with payload : "+payload);
+    //console.log("Device Event from :: "+deviceType+" : "+deviceId+" of event "+eventType+" with payload : "+payload);
     
     /* Socket.io broadcast of newly arrived data. */
     io.emit('broadcast', JSON.parse(payload).number);

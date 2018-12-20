@@ -16,7 +16,8 @@
       }
             
       /* Socket setup. */
-      var socket = io('http://localhost:4000');
+      var socket = io('https://kth-demo.eu-gb.mybluemix.net:9090');
+      console.log(socket);
       socket.on('connect', function(){DisplayMsg("Connected");});
       socket.on('broadcast', function(data){DisplayMsg(data + " °C");});
       socket.on('disconnect', function(){});
