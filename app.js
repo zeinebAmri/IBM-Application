@@ -1,9 +1,26 @@
 var iotf = require("ibmiotf");
 var io = require("socket.io")(4000);
+var express = require('express');
+var cfenv = require('cfenv');
+//------------------------------------------------------------------------------
+// create a new express server
+var app = express();
+
+// serve the files out of ./public as our main files
+app.use(express.static(__dirname + '/public'));
+
+// get the app environment from Cloud Foundry
+var appEnv = cfenv.getAppEnv();
+
+// start server on the specified port and binding host
+app.listen(appEnv.port, '0.0.0.0', function() {
+  console.log("server starting on " + appEnv.url);
+});
+
 
 /* Watson IoT config */
-var device_config = require("./device.json");
-var app_config = require("./app.json");
+var device_config = require("./configs/device.json");
+var app_config = require("./configs/app.json");
 
 /* Device Emulation (In our case a raspberry pi & sensor) */
 var deviceClient = new iotf.IotfManagedDevice(device_config);

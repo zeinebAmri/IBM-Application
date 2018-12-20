@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-GB">
   <head>
-    <title>Hello World</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <meta charset="UTF-8">
+    <title>IBM-KTH-Demo</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
-
   <body>
-    <table>
-      <tr>
-        <td style= "width:30%;">
-          <img class = "newappIcon" src="images/newapp-icon.png">
-        </td>
-        <td>
-          <h1>Hello world! Test</h1>
-        </td>
-      </tr>
-    </table>
+    <div id="console">
+    </div>
+    <script type="text/javascript">
+      function DisplayMsg(msg) {
+        $('#console').append('<span class="cmd_line">' + msg + '</span>');
+      }
+            
+      /* Socket setup. */
+      var socket = io('http://localhost:4000');
+      socket.on('connect', function(){DisplayMsg("Connected");});
+      socket.on('broadcast', function(data){DisplayMsg(data + " °C");});
+      socket.on('disconnect', function(){});
+    </script>
   </body>
-
 </html>
