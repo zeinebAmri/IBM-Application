@@ -1,5 +1,5 @@
 {
-	"name": "IBM-KTH-Demo",
+	"name": "KTH-Demo",
 	"version": "0.0.1",
     "private": true,
 	"scripts": {
@@ -13,6 +13,6 @@
 	},
 	"repository": {},
 	"engines": {
-		"node": "4.2.x || 6.x"
+		"node": "11.5.0"
 	} 
 }

@@ -16,11 +16,12 @@
       }
             
       /* Socket setup. */
-      var socket = io('https://kth-demo.eu-gb.mybluemix.net:9090');
+      var socket = io('https://kth-demo.eu-gb.mybluemix.net:8080');
       console.log(socket);
       socket.on('connect', function(){DisplayMsg("Connected");});
       socket.on('broadcast', function(data){DisplayMsg(data + " °C");});
       socket.on('disconnect', function(){});
+      socket.on('error', (error) => {console.log(error)});
     </script>
   </body>
 </html>
