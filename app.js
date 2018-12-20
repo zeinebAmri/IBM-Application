@@ -4,20 +4,20 @@ var app = express();
 var http = require('http').Server(app);
 var io = require("socket.io")(http);
 var cfenv = require('cfenv');
+var vcapServices = require('vcap_services');
 
 /* serve the files out of ./public as our main files. */
 app.use(express.static(__dirname + '/public'));
 
+/* Retrieve Cloud Foundry environment variables. */
+var credentials = vcapServices.getCredentials('iotf-service');
 /* get the app environment from Cloud Foundry. */
 var app_env = cfenv.getAppEnv();
-/* Retrieve Cloud Foundry environment variables. */
-const iot_env = app_env.getService('iotf-service')[0];
-
-console.log(app_env);
+console.log(credentials);
 
 /* Watson IoT config */
 const device_config = {
-  "org": iot_env.credentials.org,
+  "org": credentials.org,
   "domain": "internetofthings.ibmcloud.com",
   "type": "IBM-KTH-Demo",
   "id": "0",
@@ -26,11 +26,11 @@ const device_config = {
   "use-client-certs": false
 };
 const app_config = {
-    "org" : iot_env.credentials.org,
-    "id" : "0",
+    "org": credentials.org,
+    "id": "0",
     "domain": "internetofthings.ibmcloud.com",
-    "auth-key" : iot_env.credentials.apiKey,
-    "auth-token" : iot_env.credentials.apiToken
+    "auth-key": credentials.apiKey,
+    "auth-token": credentials.apiToken
 };
 
 /* start server on the specified port and binding host app_env.port */
