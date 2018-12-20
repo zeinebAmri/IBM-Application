@@ -11,9 +11,9 @@ app.use(express.static(__dirname + '/public'));
 /* get the app environment from Cloud Foundry. */
 var app_env = cfenv.getAppEnv();
 /* Retrieve Cloud Foundry environment variables. */
-const iot_env = app_env.getService('iotf-service');
+const iot_env = app_env.getService('iotf-service')[0];
 
-console.log(app_env.services);
+console.log(app_env);
 
 /* Watson IoT config */
 const device_config = {
