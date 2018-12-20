@@ -11,7 +11,7 @@ var deviceClient = new iotf.IotfManagedDevice(device_config);
 /* Application (Your front-end) */
 var appClient = new iotf.IotfApplication(app_config);
 
-//setting the log level to trace. By default its 'warn'
+/* Setting the log level to trace. By default its 'warn' */
 //deviceClient.log.setLevel('debug');
 
 appClient.connect();
@@ -20,6 +20,8 @@ deviceClient.connect();
 /* When your application has connected, setup listeners and callbacks. */
 appClient.on("connect", function () {
   console.log("Connected the application.");
+  
+  /* Listen for temperature event on device types of IBM-KTH-Demo and where the device ID is 0. */
   appClient.subscribeToDeviceEvents("IBM-KTH-Demo", "0", "temperature");
   
   /* On a temperature event, insert the new data. */
