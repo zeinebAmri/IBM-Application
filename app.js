@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/public'));
 var credentials = vcapServices.getCredentials('iotf-service');
 /* get the app environment from Cloud Foundry. */
 var app_env = cfenv.getAppEnv();
-console.log(credentials);
+console.log(app_env.device);
 
 /* Watson IoT config */
 const device_config = {
