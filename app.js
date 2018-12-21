@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/public'));
 var credentials = vcapServices.getCredentials('iotf-service');
 /* get the app environment from Cloud Foundry. */
 var app_env = cfenv.getAppEnv();
-console.log(app_env.device);
+console.log(app_env);
 
 /* Watson IoT config */
 const device_config = {
@@ -43,7 +43,7 @@ var device_client = new iotf.IotfManagedDevice(device_config);
 var app_client = new iotf.IotfApplication(app_config);
 
 /* Setting the log level to trace. By default its 'warn' */
-device_client.log.setLevel('debug');
+//device_client.log.setLevel('debug');
 
 app_client.connect();
 device_client.connect();
