@@ -22,7 +22,7 @@ const device_config = {
   "type": "IBM-KTH-Demo",
   "id": "0",
   "auth-method": "token",
-  "auth-token": app_env.devtoken,
+  "auth-token": "4Opr3mfUFSrOXyi4bw",
   "use-client-certs": false
 };
 const app_config = {
