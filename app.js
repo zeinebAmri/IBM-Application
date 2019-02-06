@@ -25,11 +25,11 @@ const device_config = {
   "use-client-certs": false
 };
 const app_config = {
-    "org": credentials.org,
-    "id": "0",
-    "domain": "internetofthings.ibmcloud.com",
-    "auth-key": credentials.apiKey,
-    "auth-token": credentials.apiToken
+  "org": credentials.org,
+  "id": "0",
+  "domain": "internetofthings.ibmcloud.com",
+  "auth-key": credentials.apiKey,
+  "auth-token": credentials.apiToken
 };
 
 /* start server on the specified port and binding host app_env.port */
@@ -66,13 +66,10 @@ app_client.on("connect", function () {
 /* When your device has connected, setup listeners and callbacks. */
 device_client.on('connect', function(){
   console.log("Connected the device.");
-  
   /* We will skip managed devices for now. */
-	//var rc = device_client.manage(4000, false, true);
-
+  //var rc = device_client.manage(4000, false, true);
   /* Update the device location, long-lat. */
   //device_client.updateLocation(77.598838,12.96829);
-  
   setInterval(DemoData, 2000);
 });
 
@@ -83,10 +80,10 @@ device_client.on('dmAction', function(request){
 
 /* Send spoofed data. */
 function DemoData() {
-   var data = {
-      text: "demo_data",
-      number: (Math.random() * 10) + 20
-   };
+  var data = {
+    text: "demo_data",
+    number: (Math.random() * 10) + 20
+  };
   device_client.publish('temperature', 'json', JSON.stringify(data), 0);
 }
 
@@ -97,8 +94,8 @@ device_client.on('disconnect', function(){
 });
 
 device_client.on('error', function (argument) {
-	console.log(argument);
-	process.exit(1);
+  console.log(argument);
+  process.exit(1);
 });
 
 
