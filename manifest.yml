@@ -2,3 +2,5 @@ applications:
 - name: KTH-Demo
   memory: 128M
   buildpack: sdk-for-nodejs
+  services:
+  - Internet of Things Platform-bd
