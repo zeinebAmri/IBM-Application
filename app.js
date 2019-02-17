@@ -9,7 +9,6 @@ var IoTApp  = require('./application/application.js');
 /* Serve the files out of ./public as our main files. */
 app.use(express.static(__dirname + '/public'));
 
-<<<<<<< HEAD
 /* 
   Get the app environment from Cloud Foundry,
   if you are developing locally (VCAP_SERVICES environment variable not set),
@@ -21,7 +20,6 @@ var app_env = cfenv.getAppEnv({vcapFile: 'KTH-Demo_vcap.json'});
 /* Retrieve Cloud Foundry environment variables. */
 var credentials = app_env.getServiceCreds("Internet of Things Platform-bd");
 
-<<<<<<< HEAD
 var device = new IoTDevice(credentials.org, process.env.device);
 var application = new IoTApp(credentials.org, credentials.apiKey, credentials.apiToken);
 
@@ -37,7 +35,6 @@ http.listen(app_env.port || 8080, function() {});
 /* === This is purely for demo purposes. */
 setInterval(SendData, 2000);
 /* Send spoofed data. */
-<<<<<<< HEAD
 async function SendData() {
   if (device.IsConnected()) {
     var data = {
@@ -47,7 +44,6 @@ async function SendData() {
     device.Push('temperature', data);
   }
 }
-=======
 
 
 
