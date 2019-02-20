@@ -3,7 +3,6 @@ var app = express();
 var http = require('http').Server(app);
 var ws = require("socket.io")(http);
 var cfenv = require('cfenv');
-var IoTDevice = require ('./device/device.js');
 var IoTApp  = require('./application/application.js');
 
 /* Serve the files out of ./public as our main files. */
@@ -20,7 +19,6 @@ var app_env = cfenv.getAppEnv({vcapFile: 'KTH-Demo_vcap.json'});
 /* Retrieve Cloud Foundry environment variables. */
 var credentials = app_env.getServiceCreds("Internet of Things Platform-bd");
 
-var device = new IoTDevice(credentials.org, process.env.device);
 var application = new IoTApp(credentials.org, credentials.apiKey, credentials.apiToken);
 
 /* Application is an event emitter, so we listen for the payload event we defined in application.js! */
@@ -31,19 +29,3 @@ application.on('payload', function(data) {
 
 /* Start server on the specified port and binding host app_env.port */
 http.listen(app_env.port || 8080, function() {});
-
-/* === This is purely for demo purposes. */
-setInterval(SendData, 2000);
-/* Send spoofed data. */
-async function SendData() {
-  if (device.IsConnected()) {
-    var data = {
-      text: "demo_data",
-      number: (Math.random() * 10) + 20
-    };
-    device.Push('temperature', data);
-  }
-}
-
-
-
