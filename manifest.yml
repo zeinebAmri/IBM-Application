@@ -1,5 +1,5 @@
 applications:
-  - name: IBM-Application
+- name: IBM-Application
   memory: 128M
   buildpack: sdk-for-nodejs
   services:

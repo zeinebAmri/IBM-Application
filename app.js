@@ -19,7 +19,6 @@ const IOT_PLATFORM = "NAME";
 
 /* Retrieve Cloud Foundry environment variables. */
 var credentials = app_env.getServiceCreds(IOT_PLATFORM);
-
 var application = new IoTApp(credentials.org, credentials.apiKey, credentials.apiToken);
 
 /* Application is an event emitter, so we listen for the payload event we defined in application.js! */
