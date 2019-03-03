@@ -27,7 +27,7 @@ class Application extends EventEmitter {
       console.log("Connected the application.");
       
       /* Subscribe to temperature event on device types of IBM-KTH-Demo and where the device ID is 0. */
-      that.app_client.subscribeToDeviceEvents("IBM-KTH-Demo", "0", "temperature");
+      that.app_client.subscribeToDeviceEvents("IBM-KTH", "0", "device_data");
       
       /* On a data recieved, emit event. */
       that.app_client.on("deviceEvent", async function (deviceType, deviceId, eventType, format, payload) {

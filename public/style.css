@@ -1,7 +1,7 @@
 /* Pretty little colours. */
 
 body {
-  background-color: #000000;
+  background-color: #f4f4f4;
 }
 #console {
   width: 25rem;
@@ -18,7 +18,6 @@ body {
 }
 .cmd_line {
   display: block;
-  color: #f4f4f4;
   margin-top: 0px;
   margin-bottom: -6px;
 }

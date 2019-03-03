@@ -14,7 +14,7 @@ app.use(express.static(__dirname + '/public'));
   cfenv will use the file defined by vcapFile instead.
   You can export these local json files from IBM Cloud!
 */
-var app_env = cfenv.getAppEnv({vcapFile: 'KTH-Demo_vcap.json'});
+var app_env = cfenv.getAppEnv({vcapFile: 'vcap.json'});
 const IOT_PLATFORM = "NAME";
 
 /* Retrieve Cloud Foundry environment variables. */
@@ -28,4 +28,4 @@ application.on('payload', function(data) {
 });
 
 /* Start server on the specified port and binding host app_env.port */
-http.listen(app_env.port || 8080, function() {});
+http.listen(app_env.port || 4096, function() {});
