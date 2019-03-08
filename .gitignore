@@ -60,8 +60,5 @@ typings/
 # next.js build output
 .next
 
-# Package lock files.
-package-lock.json
-
 # Local vcap for testing.
 KTH-Demo_vcap.json
