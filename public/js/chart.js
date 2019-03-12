@@ -7,7 +7,7 @@ var config = {
       label: 'Temperature',
       data: [],
       fill: false,
-      borderColor: 'red'
+      borderColor: '#006699'
     }]
   },
   options: {
@@ -42,9 +42,7 @@ var config = {
             'year': 'mm:ss'
           }
         },
-        ticks: {
-          fontColor: "white",
-        },
+        ticks: {},
         scaleLabel: {
           display: false,
         }
@@ -52,7 +50,6 @@ var config = {
       yAxes: [{
         display: true,
         ticks: {
-          fontColor: "white",
           beginAtZero: true
         },
         scaleLabel: {
