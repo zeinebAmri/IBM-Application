@@ -24,7 +24,7 @@ var application = new IoTApp(credentials.org, credentials.apiKey, credentials.ap
 /* Application is an event emitter, so we listen for the payload event we defined in application.js! */
 application.on('payload', function(data) {
   /* We then broadcast to our clients.  */
-  ws.emit('broadcast', JSON.parse(data).number);
+  ws.emit('broadcast', JSON.parse(data).temp);
 });
 
 /* Start server on the specified port and binding host app_env.port */
