@@ -15,7 +15,7 @@ app.use(express.static(__dirname + '/public'));
   You can export these local json files from IBM Cloud!
 */
 var app_env = cfenv.getAppEnv({vcapFile: 'vcap.json'});
-const IOT_PLATFORM = "NAME";
+const IOT_PLATFORM = "Internet Of Things-zeineb";
 
 /* Retrieve Cloud Foundry environment variables. */
 var credentials = app_env.getServiceCreds(IOT_PLATFORM);
